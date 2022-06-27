@@ -4,10 +4,10 @@ export const data = [
     text: 'אודותינו',
     id: 'about',
   },
-  // {
-  // 	to: '/pricing',
-  // 	text: 'Pricing',
-  // },
+  {
+    to: '/youTube',
+    text: 'ערוץ של הרב',
+  },
   {
     to: '/signup',
     text: 'בקשה מהרב',

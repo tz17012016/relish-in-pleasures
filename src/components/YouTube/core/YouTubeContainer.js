@@ -7,31 +7,21 @@ import axios from 'axios';
 const Container = () => {
   const [state, setState] = React.useState({ videos: [], selectedVideo: null });
   React.useEffect(() => {
-    onTermSubmit('hy');
+    onTermSubmit('');
   }, []);
 
   const onTermSubmit = async (term) => {
     console.log('term from serche', term);
-    // const response = await axios.get({
-    //   url: 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=buildings&type=video&key=AIzaSyBdL0azc2GRkWAxPfYNvq03zYp2kSGIg7M',
-    // });
+
     const response = await fetch(
-      `https://still-cliffs-92252.herokuapp.com/https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${term}&type=video&key=AIzaSyBdL0azc2GRkWAxPfYNvq03zYp2kSGIg7M`
+      `https://still-cliffs-92252.herokuapp.com/https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&type=video&key=AIzaSyBQgcodgMw4TUSYB5sFmaoe7nFBYVmZREw&q=${term}`
     );
     const data = await response.json();
-    // const response = await youtube.get('/search', {
-    //   headers: {
-    //     'Access-Control-Allow-Origin': '*',
-    //     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-    //   },
-    //   params: {
-    //     q: term,
-    //   },
-    // });
+
     console.log(data);
     setState({
-      videos: response.data.items,
-      selectedVideo: response.data.items[0],
+      videos: data.items,
+      selectedVideo: data.items[0],
     });
   };
 

@@ -13,6 +13,7 @@ import {
   YouTubeTitle,
 } from './YouTubeStyles';
 import { Container } from '../../globalStyles';
+import Frame from 'react-frame-component';
 
 const YouTube = () => {
   return (
